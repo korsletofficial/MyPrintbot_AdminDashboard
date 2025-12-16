@@ -1,0 +1,386 @@
+// Dummy data for Admin Dashboard
+
+export const metricsData = {
+  platformOverview: {
+    printPartners: 45,
+    newPartnersThisMonth: 3,
+    clients: 120,
+    newClientsThisMonth: 12,
+    totalSubmissions: 12450,
+    newSubmissionsThisMonth: 1234,
+  },
+  activeJobs: {
+    total: 234,
+    inProgress: 189,
+    pendingApproval: 45,
+    newToday: 8,
+  },
+  revenue: {
+    thisMonth: 485000,
+    growthPercent: 18,
+    avgPerJob: 2070,
+  },
+  submissionMetrics: {
+    total: 12450,
+    approvalRate: 89.3,
+    qualityScore: 98.2,
+    flaggedIssues: 120,
+  },
+};
+
+export const userGrowthData = [
+  { date: "Oct 1", partners: 38, clients: 95 },
+  { date: "Oct 5", partners: 40, clients: 102 },
+  { date: "Oct 10", partners: 41, clients: 108 },
+  { date: "Oct 15", partners: 42, clients: 112 },
+  { date: "Oct 20", partners: 43, clients: 115 },
+  { date: "Oct 25", partners: 44, clients: 118 },
+  { date: "Oct 30", partners: 45, clients: 120 },
+];
+
+export const jobStatusData = [
+  { name: "Active", value: 189, fill: "#3b82f6" },
+  { name: "Completed", value: 1240, fill: "#10b981" },
+  { name: "Pending", value: 45, fill: "#f59e0b" },
+  { name: "Cancelled", value: 12, fill: "#ef4444" },
+];
+
+export const revenueData = [
+  { month: "May", revenue: 380000, avgOrder: 1900 },
+  { month: "Jun", revenue: 420000, avgOrder: 1950 },
+  { month: "Jul", revenue: 390000, avgOrder: 1850 },
+  { month: "Aug", revenue: 410000, avgOrder: 2000 },
+  { month: "Sep", revenue: 440000, avgOrder: 2050 },
+  { month: "Oct", revenue: 485000, avgOrder: 2070 },
+];
+
+export const recentActivities = [
+  {
+    id: 1,
+    type: "user",
+    message: "New Print Partner registered: Quick Print Co.",
+    time: "5 minutes ago",
+    icon: "UserPlus",
+  },
+  {
+    id: 2,
+    type: "job",
+    message: "Job JOB-045 completed (1500 cards)",
+    time: "12 minutes ago",
+    icon: "CheckCircle",
+  },
+  {
+    id: 3,
+    type: "payment",
+    message: "Payment processed: Rs. 5,000 for JOB-042",
+    time: "30 minutes ago",
+    icon: "CreditCard",
+  },
+  {
+    id: 4,
+    type: "user",
+    message: "New Client registered: ABC University",
+    time: "1 hour ago",
+    icon: "UserPlus",
+  },
+  {
+    id: 5,
+    type: "job",
+    message: "Job JOB-046 approved by client",
+    time: "2 hours ago",
+    icon: "CheckCircle",
+  },
+  {
+    id: 6,
+    type: "alert",
+    message: "High rejection rate detected in JOB-012",
+    time: "3 hours ago",
+    icon: "AlertTriangle",
+  },
+  {
+    id: 7,
+    type: "payment",
+    message: "Payment processed: Rs. 3,500 for JOB-041",
+    time: "4 hours ago",
+    icon: "CreditCard",
+  },
+  {
+    id: 8,
+    type: "job",
+    message: "Job JOB-044 started production",
+    time: "5 hours ago",
+    icon: "Package",
+  },
+];
+
+export const printPartners = [
+  {
+    id: 1,
+    name: "Acme Print Co.",
+    email: "contact@acme.com",
+    status: "Active",
+    jobsHandled: 45,
+    joined: "Oct 15, 2024",
+    rating: 4.8,
+  },
+  {
+    id: 2,
+    name: "Prime Cards",
+    email: "info@primecards.in",
+    status: "Active",
+    jobsHandled: 67,
+    joined: "Sep 22, 2024",
+    rating: 4.9,
+  },
+  {
+    id: 3,
+    name: "Quick Print",
+    email: "hello@quick.com",
+    status: "Pending",
+    jobsHandled: 0,
+    joined: "Nov 1, 2024",
+    rating: 0,
+  },
+  {
+    id: 4,
+    name: "Elite Printing",
+    email: "contact@elite.com",
+    status: "Active",
+    jobsHandled: 34,
+    joined: "Sep 5, 2024",
+    rating: 4.7,
+  },
+  {
+    id: 5,
+    name: "Fast Cards Pro",
+    email: "info@fastcards.com",
+    status: "Active",
+    jobsHandled: 52,
+    joined: "Aug 18, 2024",
+    rating: 4.6,
+  },
+];
+
+export const clients = [
+  {
+    id: 1,
+    organization: "ABC School",
+    email: "admin@abcs.edu",
+    status: "Active",
+    jobs: 15,
+    joined: "Oct 12, 2024",
+    totalSpent: 75000,
+  },
+  {
+    id: 2,
+    organization: "XYZ Corp",
+    email: "hr@xyzcorp.com",
+    status: "Active",
+    jobs: 8,
+    joined: "Sep 18, 2024",
+    totalSpent: 42000,
+  },
+  {
+    id: 3,
+    organization: "Demo University",
+    email: "info@demou.edu",
+    status: "Active",
+    jobs: 23,
+    joined: "Aug 5, 2024",
+    totalSpent: 125000,
+  },
+  {
+    id: 4,
+    organization: "Tech Innovators Inc",
+    email: "admin@techinnovators.com",
+    status: "Active",
+    jobs: 12,
+    joined: "Oct 1, 2024",
+    totalSpent: 58000,
+  },
+  {
+    id: 5,
+    organization: "Green Valley School",
+    email: "contact@greenvalley.edu",
+    status: "Active",
+    jobs: 6,
+    joined: "Oct 22, 2024",
+    totalSpent: 28000,
+  },
+];
+
+export const jobs = [
+  {
+    id: "JOB-001",
+    client: "ABC School",
+    partner: "Acme Print",
+    status: "Completed",
+    progress: 100,
+    cards: 500,
+    created: "Oct 12, 2024",
+    amount: 5070,
+  },
+  {
+    id: "JOB-002",
+    client: "XYZ Corp",
+    partner: "Prime Cards",
+    status: "In Progress",
+    progress: 75,
+    cards: 300,
+    created: "Oct 20, 2024",
+    amount: 3450,
+  },
+  {
+    id: "JOB-003",
+    client: "Demo University",
+    partner: "Quick Print",
+    status: "Pending Approval",
+    progress: 30,
+    cards: 800,
+    created: "Oct 25, 2024",
+    amount: 8920,
+  },
+  {
+    id: "JOB-004",
+    client: "Tech Innovators Inc",
+    partner: "Elite Printing",
+    status: "Active",
+    progress: 60,
+    cards: 250,
+    created: "Oct 28, 2024",
+    amount: 2890,
+  },
+  {
+    id: "JOB-005",
+    client: "Green Valley School",
+    partner: "Fast Cards Pro",
+    status: "In Production",
+    progress: 85,
+    cards: 400,
+    created: "Oct 15, 2024",
+    amount: 4560,
+  },
+];
+
+export const submissionAnalytics = {
+  overview: {
+    totalSubmissions: 12450,
+    approved: 11120,
+    approvalRate: 89.3,
+    rejected: 890,
+    rejectionRate: 7.2,
+    pending: 440,
+    pendingRate: 3.5,
+    flagged: 120,
+    flaggedRate: 0.9,
+  },
+  qualityMetrics: {
+    faceDetectionPass: 98.7,
+    duplicateDetectionRate: 2.1,
+    imageQualityPass: 97.2,
+    dataCompleteness: 99.2,
+    overallQualityScore: 98.2,
+  },
+  trends: {
+    avgPerDay: 415,
+    peakDay: { date: "Oct 25", count: 890 },
+    peakHours: "2:00 PM - 5:00 PM",
+    growthPercent: 8.5,
+  },
+};
+
+export const topPerformingJobs = [
+  {
+    jobId: "JOB-045",
+    client: "XYZ Corp",
+    total: 500,
+    approved: 490,
+    approvalRate: 98,
+    rejected: 10,
+    rejectionRate: 2,
+    qualityScore: 99.1,
+  },
+  {
+    jobId: "JOB-023",
+    client: "ABC School",
+    total: 450,
+    approved: 428,
+    approvalRate: 95,
+    rejected: 22,
+    rejectionRate: 5,
+    qualityScore: 96.8,
+  },
+  {
+    jobId: "JOB-067",
+    client: "Demo University",
+    total: 380,
+    approved: 350,
+    approvalRate: 92,
+    rejected: 30,
+    rejectionRate: 8,
+    qualityScore: 94.5,
+  },
+];
+
+export const jobsNeedingAttention = [
+  {
+    jobId: "JOB-012",
+    client: "ABC Corp",
+    total: 200,
+    approved: 150,
+    approvalRate: 75,
+    rejected: 50,
+    rejectionRate: 25,
+    qualityScore: 78.3,
+    issue: "High rejection rate",
+  },
+  {
+    jobId: "JOB-089",
+    client: "Test School",
+    total: 150,
+    approved: 135,
+    approvalRate: 90,
+    rejected: 15,
+    rejectionRate: 10,
+    qualityScore: 82.1,
+    issue: "Quality concerns",
+  },
+  {
+    jobId: "JOB-034",
+    client: "XYZ Org",
+    total: 180,
+    approved: 144,
+    approvalRate: 80,
+    rejected: 36,
+    rejectionRate: 20,
+    qualityScore: 85.6,
+    issue: "Template issues",
+  },
+];
+
+export const systemHealth = {
+  services: [
+    { name: "API Server", status: "healthy", uptime: 99.8 },
+    { name: "Database", status: "healthy", uptime: 99.9 },
+    { name: "AWS S3 Storage", status: "healthy", uptime: 100 },
+    { name: "Email Service", status: "healthy", uptime: 98.5 },
+    { name: "Payment Gateway", status: "healthy", uptime: 99.9 },
+  ],
+  errors: {
+    last24h: 14,
+    apiErrors: 8,
+    databaseErrors: 2,
+    fileUploadErrors: 3,
+    paymentErrors: 1,
+  },
+  resources: {
+    cpuUsage: 34,
+    memoryUsage: 62,
+    memoryTotal: 10,
+    memoryUsed: 6.2,
+    diskUsage: 45,
+    diskTotal: 1000,
+    diskUsed: 450,
+    databaseSize: 28,
+  },
+};
