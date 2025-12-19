@@ -1,13 +1,44 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Character encoding must be first for proper parsing -->
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    
+    <!-- Viewport configuration for responsive design -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>myprintbotadmin</title>
+    
+    <!-- SEO and accessibility meta tags -->
+    <meta name="description" content="MyPrintBot Admin Dashboard - Manage print jobs, users, and system settings" />
+    <meta name="theme-color" content="#ffffff" />
+    
+    <!-- Favicon using MyPrintBot logo -->
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
+    
+    <!-- Preconnect to external domains for performance (add your API domain) -->
+    <!-- <link rel="preconnect" href="https://api.myprintbot.com" /> -->
+    
+    <!-- Page title - descriptive and branded -->
+    <title>MyPrintBot Admin - Dashboard</title>
   </head>
   <body>
-    <div id="root"></div>
+    <!-- Fallback content for users with JavaScript disabled -->
+    <noscript>
+      <div style="padding: 20px; text-align: center; font-family: system-ui, sans-serif;">
+        <h1>JavaScript Required</h1>
+        <p>Please enable JavaScript to use MyPrintBot Admin Dashboard.</p>
+      </div>
+    </noscript>
+    
+    <!-- React root element with accessible loading state -->
+    <div id="root" role="application" aria-label="MyPrintBot Admin Dashboard">
+      <!-- Optional: Loading indicator while React hydrates -->
+      <div style="display: flex; justify-content: center; align-items: center; min-height: 100vh;">
+        <span>Loading...</span>
+      </div>
+    </div>
+    
+    <!-- Main application entry point -->
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
