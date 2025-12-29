@@ -2,6 +2,8 @@
  * Image utility functions
  */
 
+import { API_BASE_URL } from '../config';
+
 /**
  * Get the full URL for an image
  * Handles both base64 data URLs and server paths
@@ -17,7 +19,7 @@ export const getImageUrl = (imageUrl) => {
   }
 
   // If it's a relative path, prepend the backend URL
-  const backendUrl = import.meta.env.VITE_API_URL?.replace('/api', '') || 'http://localhost:3000';
+  const backendUrl = API_BASE_URL.replace('/api', '');
 
   // Ensure path starts with /
   const path = imageUrl.startsWith('/') ? imageUrl : `/${imageUrl}`;
