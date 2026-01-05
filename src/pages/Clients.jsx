@@ -53,7 +53,7 @@ const Clients = () => {
       }
     } catch (error) {
       console.error('Error fetching clients:', error);
-      alert('Failed to load clients');
+      toast.error('Failed to load clients');
     } finally {
       setLoading(false);
     }
@@ -76,11 +76,11 @@ const Clients = () => {
 
     try {
       await clientsAPI.deleteClient(id);
-      alert('Client deleted successfully');
+      toast.success('Client deleted successfully');
       fetchClients(); // Refresh list
     } catch (error) {
       console.error('Error deleting client:', error);
-      alert(error.response?.data?.error || 'Failed to delete client');
+      toast.error(error.response?.data?.error || 'Failed to delete client');
     }
   };
 
@@ -258,7 +258,7 @@ const Clients = () => {
                             size="icon"
                             title="View Details"
                             onClick={() =>
-                              alert('Client details view - Coming soon')
+                              toast.info('Client details view - Coming soon')
                             }
                           >
                             <Eye className="h-4 w-4" />

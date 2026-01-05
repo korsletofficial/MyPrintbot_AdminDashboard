@@ -53,7 +53,7 @@ const PrintPartners = () => {
       }
     } catch (error) {
       console.error('Error fetching print partners:', error);
-      alert('Failed to load print partners');
+      toast.error('Failed to load print partners');
     } finally {
       setLoading(false);
     }
@@ -76,11 +76,11 @@ const PrintPartners = () => {
 
     try {
       await printPartnersAPI.deletePrintPartner(id);
-      alert('Print partner deleted successfully');
+      toast.success('Print partner deleted successfully');
       fetchPartners(); // Refresh list
     } catch (error) {
       console.error('Error deleting partner:', error);
-      alert(error.response?.data?.error || 'Failed to delete print partner');
+      toast.error(error.response?.data?.error || 'Failed to delete print partner');
     }
   };
 

@@ -8,6 +8,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } f
 import { Search, Upload, X } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { uploadTemplateFiles, createTemplate } from '@/api/endpoints/templates';
+import { toast } from 'sonner';
 
 const STANDARD_SIZES = [
   { id: 'cr80', title: 'CR80', desc: '85.6 × 54 mm, Standard Credit Card Size', width: 85.6, height: 53.98 },
@@ -103,9 +104,9 @@ export default function TemplateBuilder() {
           [type]: file,
         },
       }));
-      alert(`${type === 'blank' ? 'Blank' : 'Preview'} template uploaded for ${side} side`);
+      toast.success(`${type === 'blank' ? 'Blank' : 'Preview'} template uploaded for ${side} side`);
     } else {
-      alert('Please upload a valid image file (JPG, JPEG, PNG, or PDF)');
+      toast.error('Please upload a valid image file (JPG, JPEG, PNG, or PDF)');
     }
   };
 
@@ -131,23 +132,23 @@ export default function TemplateBuilder() {
         setErrors((prev) => ({ ...prev, width: widthError, height: heightError }));
 
         if (widthError || heightError) {
-          alert('Please fix the errors in custom dimensions');
+          toast.error('Please fix the errors in custom dimensions');
           return;
         }
       }
 
       // Move to upload step
       setCurrentStep(2);
-      alert('Template dimensions configured!');
+      toast.success('Template dimensions configured!');
     } else if (currentStep === 2) {
       // Validate uploads
       if (!uploads.front.blank || !uploads.front.preview) {
-        alert('Please upload both blank and preview templates for front side');
+        toast.error('Please upload both blank and preview templates for front side');
         return;
       }
 
       if (form.custom.bothSides === 'yes' && (!uploads.back.blank || !uploads.back.preview)) {
-        alert('Please upload both blank and preview templates for back side');
+        toast.error('Please upload both blank and preview templates for back side');
         return;
       }
 
@@ -155,18 +156,18 @@ export default function TemplateBuilder() {
       setLoading(true);
 
       try {
-        alert('Uploading template files...');
+        toast.loading('Uploading template files...');
         const uploadResponse = await uploadTemplateFiles(uploads);
 
         if (!uploadResponse.success) {
-          alert(uploadResponse.message || 'Failed to upload template files');
+          toast.error(uploadResponse.message || 'Failed to upload template files');
           setLoading(false);
           return;
         }
 
         // Store the URLs for use in save modal
         setUploadedFileUrls(uploadResponse.data);
-        alert('Files uploaded successfully!');
+        toast.success('Files uploaded successfully!');
 
         // Open save modal
         setShowSaveModal(true);
@@ -174,7 +175,7 @@ export default function TemplateBuilder() {
 
       } catch (error) {
         console.error('Upload error:', error);
-        alert(error.response?.data?.message || error.message || 'Failed to upload files');
+        toast.error(error.response?.data?.message || error.message || 'Failed to upload files');
         setLoading(false);
       }
     }
@@ -191,17 +192,17 @@ export default function TemplateBuilder() {
   const handleSaveTemplate = async () => {
     // Validate form fields
     if (!saveForm.templateName.trim()) {
-      alert('Please enter a template name');
+      toast.error('Please enter a template name');
       return;
     }
 
     if (!saveForm.category) {
-      alert('Please select a template category');
+      toast.error('Please select a template category');
       return;
     }
 
     if (!saveForm.orientation) {
-      alert('Please select template orientation');
+      toast.error('Please select template orientation');
       return;
     }
 
@@ -238,21 +239,21 @@ export default function TemplateBuilder() {
         tags: [],
       };
 
-      alert('Creating template...');
+      toast.loading('Creating template...');
 
       // Create template
       const createResponse = await createTemplate(templateData);
 
       if (createResponse.success) {
-        alert('Template saved successfully!');
+        toast.success('Template saved successfully!');
         setShowSaveModal(false);
         navigate('/templates');
       } else {
-        alert(createResponse.message || 'Failed to create template');
+        toast.error(createResponse.message || 'Failed to create template');
       }
     } catch (error) {
       console.error('Create template error:', error);
-      alert(error.response?.data?.message || error.message || 'Failed to create template');
+      toast.error(error.response?.data?.message || error.message || 'Failed to create template');
     } finally {
       setLoading(false);
     }
@@ -266,7 +267,7 @@ export default function TemplateBuilder() {
       : 'Upload card with dummy data filled in';
 
     return (
-      <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-blue-400 transition-colors">
+      <div className="border-2 border-dashed border-gray-200 rounded-lg p-6 text-center hover:border-blue-400 transition-colors">
         {!file ? (
           <label className="cursor-pointer block">
             <input

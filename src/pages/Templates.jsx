@@ -17,6 +17,7 @@ import { Search, Plus, Loader2 } from 'lucide-react';
 import { templatesAPI } from '@/api/endpoints/templates';
 import { TemplateCard } from '@/components/templates/TemplateCard';
 import { TemplatePreviewModal } from '@/components/templates/TemplatePreviewModal';
+import { toast } from 'sonner';
 
 export default function Templates() {
   const navigate = useNavigate();
@@ -64,7 +65,7 @@ export default function Templates() {
       }
     } catch (error) {
       console.error('Error fetching templates:', error);
-      alert('Failed to load templates');
+      toast.error('Failed to load templates');
     } finally {
       setLoading(false);
     }
@@ -104,7 +105,7 @@ export default function Templates() {
       const response = await templatesAPI.deleteTemplate(templateToDelete.id);
 
       if (response.success) {
-        alert('Template deleted successfully');
+        toast.success('Template deleted successfully');
         setDeleteDialogOpen(false);
         setTemplateToDelete(null);
         // Refresh the page
@@ -112,7 +113,7 @@ export default function Templates() {
       }
     } catch (error) {
       console.error('Error deleting template:', error);
-      alert(error.response?.data?.message || 'Failed to delete template');
+      toast.error(error.response?.data?.message || 'Failed to delete template');
     } finally {
       setDeleting(false);
     }
@@ -152,7 +153,7 @@ export default function Templates() {
   return (
     <div className="p-6 flex flex-col min-h-[calc(100vh-4rem)]">
       {/* Header with Custom Tabs and Actions */}
-      <div className="bg-white rounded-t-lg border border-b-0 px-6 py-4">
+      <div className="bg-white rounded-t-lg px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Custom Tab Navigation */}
           <div className="flex items-center gap-8">
@@ -217,11 +218,11 @@ export default function Templates() {
 
       {/* Templates Content or Empty State */}
       {loading ? (
-        <div className="bg-white rounded-b-lg border border-t flex-1 flex items-center justify-center">
+        <div className="bg-white rounded-b-lg flex-1 flex items-center justify-center">
           <Loader2 className="w-8 h-8 animate-spin text-primary" />
         </div>
       ) : templates.length === 0 ? (
-        <div className="bg-white rounded-b-lg border border-t flex-1 flex items-center justify-center">
+        <div className="bg-white rounded-b-lg flex-1 flex items-center justify-center">
           <div className="max-w-xl w-full p-12 text-center">
             <div className="flex justify-center mb-6">
               <div className="text-6xl">📄</div>
@@ -235,7 +236,7 @@ export default function Templates() {
           </div>
         </div>
       ) : (
-        <div className="bg-white rounded-b-lg border border-t overflow-hidden flex-1">
+        <div className="bg-white rounded-b-lg overflow-hidden flex-1">
           <div className="p-6">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
               {templates.map((template) => (

@@ -5,6 +5,7 @@ import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import { Save, Loader2, Info } from 'lucide-react';
 import { adminSettingsAPI } from '../api/endpoints/adminSettings';
+import { toast } from 'sonner';
 
 export default function Settings() {
   const [loading, setLoading] = useState(true);
@@ -51,7 +52,7 @@ export default function Settings() {
       }
     } catch (error) {
       console.error('Error fetching settings:', error);
-      alert('Failed to load settings');
+      toast.error('Failed to load settings');
     } finally {
       setLoading(false);
     }
@@ -73,12 +74,12 @@ export default function Settings() {
       });
       
       if (response.success) {
-        alert('Payment settings saved successfully!');
+        toast.success('Payment settings saved successfully!');
         fetchSettings(); // Refresh to get updated data
       }
     } catch (error) {
       console.error('Error saving payment settings:', error);
-      alert(error.response?.data?.error || 'Failed to save payment settings');
+      toast.error(error.response?.data?.error || 'Failed to save payment settings');
     } finally {
       setSaving(false);
     }
@@ -96,12 +97,12 @@ export default function Settings() {
       });
 
       if (response.success) {
-        alert('Email settings saved successfully!');
+        toast.success('Email settings saved successfully!');
         fetchSettings();
       }
     } catch (error) {
       console.error('Error saving email settings:', error);
-      alert(error.response?.data?.error || 'Failed to save email settings');
+      toast.error(error.response?.data?.error || 'Failed to save email settings');
     } finally {
       setSaving(false);
     }
@@ -117,12 +118,12 @@ export default function Settings() {
       });
 
       if (response.success) {
-        alert('Contact information saved successfully!');
+        toast.success('Contact information saved successfully!');
         fetchSettings();
       }
     } catch (error) {
       console.error('Error saving contact information:', error);
-      alert(error.response?.data?.error || 'Failed to save contact information');
+      toast.error(error.response?.data?.error || 'Failed to save contact information');
     } finally {
       setSaving(false);
     }
@@ -139,12 +140,12 @@ export default function Settings() {
       });
 
       if (response.success) {
-        alert('Referral program settings saved successfully!');
+        toast.success('Referral program settings saved successfully!');
         fetchSettings();
       }
     } catch (error) {
       console.error('Error saving referral settings:', error);
-      alert(error.response?.data?.error || 'Failed to save referral settings');
+      toast.error(error.response?.data?.error || 'Failed to save referral settings');
     } finally {
       setSaving(false);
     }

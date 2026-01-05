@@ -24,7 +24,7 @@ const Header = () => {
           <NotificationsDropdown />
 
           {/* User Profile */}
-          <div className="flex items-center gap-3 pl-4 border-l border-gray-300">
+          <div className="flex items-center gap-3 pl-4 border-l border-gray-200">
             <div className="text-right">
               <p className="text-sm font-semibold text-gray-900">Admin User</p>
               <p className="text-xs text-gray-500">admin@printbot.com</p>
